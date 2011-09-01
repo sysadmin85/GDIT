@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<script src="scripts/api.js" type="text/javascript"> </script>
+<script src="scripts/launcher.js" type="text/javascript"> </script>
+
+<script type="text/javascript" language="JavaScript" name="fsIeVbscript">
+<!--
+// Hook for Internet Explorer
+if (navigator.appName && navigator.appName.indexOf("Microsoft") != -1 && navigator.userAgent.indexOf("Windows") != -1 && navigator.userAgent.indexOf("Windows 3.1") == -1) {
+	document.write('<script language=\"VBScript\"\>\n');
+	document.write('On Error Resume Next\n');
+	document.write('Sub flashSco_FSCommand(ByVal command, ByVal args)\n');
+	document.write('	Call flashSco_DoFSCommand(command, args)\n');
+	document.write('End Sub\n');
+	document.write('</script\>\n');
+}
+//-->
+</script>
+<script>document.write("<title>"+customArgs.title+"</title>")</script>
+
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="AC_RunActiveContent.js" language="javascript"></script>
+
+<style type="text/css">
+<!--
+html, body, table, object, embed, div, td, tr {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+#flashcontent{
+height:100%;
+}
+html, body{
+height: 100%;
+}
+-->
+</style>
+
+
+</head>
+
+<body bgcolor="#FFFFFF" onload="SCOInitialize()" onunload="SCOFinish()" onbeforeunload="SCOFinish()">
+
+<script type="text/javascript" language="JavaScript" name="earlyInit">
+<!--
+// Determine whether to attempt to initialize API before loading
+// movie in case there is some ActionScript that fires off before
+// the rest of the HTML page has finished loading.  This is
+// configurable by setting the global boolean (g_bInitializeOnLoad)
+// in the beginning of this file.  Default value is TRUE.
+if (g_bInitializeOnLoad) {
+	SCOInitialize()
+}
+
+function scoClose() {
+	top.close();
+}
+
+
+// Enspire data initialization and config
+// get suspend data	
+var sData = SCOGetValue("cmi.suspend_data");
+// alert(sData);
+
+//-->
+</script>
+<div id="flashcontent">
+
+<!--url's used in the movie-->
+<!--text used in the movie-->
+<!-- saved from url=(0013)about:internet -->
+<script language="javascript">
+	if (AC_FL_RunContent == 0) {
+		alert("This page requires AC_RunActiveContent.js.");
+	} else {
+		AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0',
+			'width', '657',
+			'height', '560',
+			'src', 'ile',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'showall',
+			'wmode', 'window',
+			'devicefont', 'false',
+			'id', 'flashSco',
+			'bgcolor', '#ffffff',
+			'name', 'ile',
+			'menu', 'true',
+			'allowFullScreen', 'false',
+			'allowScriptAccess','sameDomain',
+			'movie', 'ile',
+			'salign', '',
+			'SeamlessTabbing', 'false'
+			); //end AC code
+	}
+</script>
+<noscript>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="657" height="560" id="ile" align="middle">
+	<param name="allowScriptAccess" value="sameDomain" />
+	<param name="allowFullScreen" value="false" />
+	<param name="movie" value="flashSco" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />	<embed src="ile.swf" quality="high" bgcolor="#ffffff" width="657" height="560" name="ile" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+	</object>
+</noscript>
+</div>
+
+<script type="text/javascript" language="JavaScript" name="objectTag">
+<!--
+
+
+
+function resizeWindow(target_width, target_height, bFinal) {
+	// from http://jibbering.com/faq/#FAQ4_9
+	d=document
+	if (typeof window.innerWidth!='undefined') {
+	 var winWidth = top.innerWidth;
+	 var winHeight = top.innerHeight;
+	} else {
+	 if (d.documentElement && 
+	  typeof d.documentElement.clientWidth!='undefined' && 
+	   d.documentElement.clientWidth!=0) {
+	  var winWidth = d.documentElement.clientWidth
+	  var winHeight = d.documentElement.clientHeight
+	 } else {
+	  if (d.body && 
+	   typeof d.body.clientWidth!='undefined') {
+	   var winWidth = d.body.clientWidth
+	   var winHeight = d.body.clientHeight
+	  }
+	 }
+	}
+
+      if(target_width=='100%') {
+ 	  top.moveTo(0,0);top.resizeTo(screen.availWidth,screen.availHeight);  
+      } else {
+	    var delta = 0;
+	    if(!bFinal) {
+	    	delta = 30;
+	    }
+            // resize by too big at first (by at least the size of the scrollbars) to get rid of them
+	    // then do the real resize.  otherwise, we get wrong size if window is initially too small
+	    // for some reason we can't do it in back-to-back lines  in explorer; it won't hide the scrollbars fast
+	    // enough, but just calling the function again does the trick
+	    top.resizeBy(target_width-winWidth+delta, target_height-winHeight+delta);
+	    if(!bFinal) {
+		   resizeWindow(target_width, target_height, true)
+	    }
+      }
+      
+      // center window
+      if(bFinal)
+      {
+	centerWindow((winWidth - 30),winHeight + 30);
+	}
+}
+
+
+function centerWindow(winwidth, winheight) {
+	 
+    if (document.all)
+        var xMax = screen.width, yMax = screen.height;
+    else
+        if (document.layers)
+            var xMax = g_objAPI.window.outerWidth, yMax = g_objAPI.window.outerHeight;
+        else
+            var xMax = 1024, yMax=768;
+
+    var xOffset = (xMax - winwidth)/2, yOffset = (yMax - winheight)/2;
+
+   // alert("center window: " + winwidth + ", " + winheight); 
+    
+    top.moveTo(xOffset, yOffset);
+}
+
+resizeWindow(customArgs.width, customArgs.height);
+//centerWindow(window.outerWidth, window.outerHeight);
+
+//-->
+</script>
+</div>
+</body>
+</html>

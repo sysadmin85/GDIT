@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<labels>
+
+	<label id="courseTitle" >This Is The Course Title</label>
+	<!-- labels for all of the GUI buttons mcMenu will ask for menu -->
+	<label id="autoplay" >Autoplay</label>
+	<label id="mute" >Mute</label>
+	<label id="back" >Back</label>
+	<label id="replay" >Replay</label>
+	<label id="pause" >Pause</label>
+	<label id="play" >Play</label>
+	<label id="next" >Next</label>
+	<label id="exit" >Exit</label>
+	<label id="navtab" >MENU</label>
+	<label id="captionstab" >CAPTIONS</label>
+	<label id="resourcestab" >RESOURCES</label>
+	<label id="progress" >Course Progress</label>
+	<label id="glossary" >Glossary</label>
+	
+	<!-- pg number labels -->
+	<label id="pgNumberingDivider" ></label>
+	<label id="pgNumberingPreText" ></label>
+	<label id="pgNumberingPostText" ></label>
+
+	<!-- interactivity labels -->
+	<label id="continue" >CONTINUE</label>
+	<label id="tryAgain" >TRY AGAIN</label>
+	<label id="close" >CLOSE</label>
+	<label id="submit" >SUBMIT</label>
+	<label id="go" >Go</label>
+</labels>

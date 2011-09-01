@@ -1,0 +1,170 @@
+Format: 1.35
+
+
+# You can add a title and sub-title to your menu like this:
+# Title: [project name]
+# SubTitle: [subtitle]
+
+# You can add a footer to your documentation like this:
+# Footer: [text]
+# If you want to add a copyright notice, this would be the place to do it.
+
+
+# --------------------------------------------------------------------------
+# 
+# Cut and paste the lines below to change the order in which your files
+# appear on the menu.  Don't worry about adding or removing files, Natural
+# Docs will take care of that.
+# 
+# You can further organize the menu by grouping the entries.  Add a
+# "Group: [name] {" line to start a group, and add a "}" to end it.
+# 
+# You can add text and web links to the menu by adding "Text: [text]" and
+# "Link: [name] ([URL])" lines, respectively.
+# 
+# The formatting and comments are auto-generated, so don't worry about
+# neatness when editing the file.  Natural Docs will clean it up the next
+# time it is run.  When working with groups, just deal with the braces and
+# forget about the indentation and comments.
+# 
+# --------------------------------------------------------------------------
+
+Title: Enspire Code Base
+SubTitle: ILE/Mantcore Application Development Library
+
+
+Group: Accessibility  {
+
+   File: Keyboard  (accessibility\Keyboard.as)
+   File: KeyboardCommand  (accessibility\KeyboardCommand.as)
+   File: KeyboardEvent  (accessibility\KeyboardEvent.as)
+   } # Group: Accessibility
+
+Group: Model  {
+
+   File: ChoiceData  (model\ChoiceData.as)
+   File: Configs  (model\Configs.as)
+   File: CourseModel  (model\CourseModel.as)
+   File: Globals  (model\Globals.as)
+   File: ICourseModel  (model\ICourseModel.as)
+   File: ILELocation  (model\ILELocation.as)
+   File: IleModel  (model\IleModel.as)
+   File: Labels  (model\Labels.as)
+   File: State  (model\State.as)
+   File: XMLLibrary  (model\XMLLibrary.as)
+   }  # Group: Model
+
+Group: Utils  {
+
+   File: BooleanUtils  (utils\BooleanUtils.as)
+   File: ConstructorUtil  (utils\ConstructorUtil.as)
+   File: GarbageCollection  (utils\GarbageCollection.as)
+   File: ILE_utils  (utils\ILE_utils.as)
+   File: NumberUtils  (utils\NumberUtils.as)
+   File: StringUtils  (utils\StringUtils.as)
+   File: TextFieldUtils  (utils\TextFieldUtils.as)
+   File: UrlUtils  (utils\UrlUtils.as)
+   }  # Group: Utils
+
+File: debug.ConsoleCheckBox  (debug\ConsoleCheckBox.as)
+
+Group: Core  {
+
+   File: ApplicationLibrary.as  (core\ApplicationLibrary.as)
+   File: Command  (core\Command.as)
+   File: CommandLibrary  (core\CommandLibrary.as)
+   File: CompoundCommand  (core\CompoundCommand.as)
+   File: ICommand  (core\ICommand.as)
+   File: SimpleCommand  (core\SimpleCommand.as)
+   File: VersionInfo  (core\VersionInfo.as)
+   }  # Group: Core
+
+Group: Display  {
+
+   Group: Alerts  {
+
+      File: AlertTemplate  (display\alerts\AlertTemplate.as)
+      File: IAlertTemplate  (display\alerts\IAlertTemplate.as)
+      File: InstructionsBanner  (display\alerts\InstructionsBanner.as)
+      }  # Group: Alerts
+
+   File: BaseDisplayManager  (display\BaseDisplayManager.as)
+   File: ContentArea  (display\ContentArea.as)
+   File: ContentContainer  (display\ContentContainer.as)
+   File: Gui  (display\Gui.as)
+   File: GUIButton  (display\GUIButton.as)
+
+   Group: Layout  {
+
+      File: BaseLayout  (display\layout\BaseLayout.as)
+      File: BoxLayout  (display\layout\BoxLayout.as)
+      File: FlowLayout  (display\layout\FlowLayout.as)
+      File: Frame  (display\layout\Frame.as)
+      File: GridLayout  (display\layout\GridLayout.as)
+      File: ILayout  (display\layout\ILayout.as)
+      }  # Group: Layout
+
+   File: LayoutUtils  (display\LayoutUtils.as)
+   File: PopupManager  (display\PopupManager.as)
+   File: TabButton  (display\TabButton.as)
+   File: TabEvent  (display\TabEvent.as)
+   File: TabSet  (display\TabSet.as)
+   File: TemplateManager  (display\TemplateManager.as)
+
+   Group: Templates  {
+
+      File: BaseTemplate  (display\templates\BaseTemplate.as)
+      File: ITemplate  (display\templates\ITemplate.as)
+      }  # Group: Templates
+
+   }  # Group: Display
+
+Group: Ile  {
+
+   File: AppController  (ile\AppController.as)
+   File: BaseAppController.as  (ile\BaseAppController.as)
+   File: GuiController  (ile\GuiController.as)
+   File: ILEWrapper  (ile\ILEWrapper.as)
+   }  # Group: Ile
+
+Group: Interactivity  {
+
+   File: BaseActivity  (interactivity\BaseActivity.as)
+   File: IActivity  (interactivity\IActivity.as)
+   File: InteractivityManager  (interactivity\InteractivityManager.as)
+	
+   Group: Templates  {
+     File: BaseActivityTemplate  (interactivity\templates\BaseActivityTemplate.as)
+     File: MultChoiceTemplate  (interactivity\templates\MultChoiceTemplate.as)
+   }  # Group: Templates
+
+   Group: Types  {
+
+      File: MultipleChoice  (interactivity\types\MultipleChoice.as)
+      File: MultipleChoice  (interactivity\types\Copy of MultipleChoice.as)
+      } # Group: Types
+
+   }  # Group: Interactivity
+
+
+Group: Debug  {
+   File: ConsoleWindow  (debug\ConsoleWindow.as)
+   }  # Group: Debug
+
+Group: Lms  {
+  File: LMSCommands  (lms\LMSCommands.as)
+}  # Group: Lms
+
+
+
+Group: Index  {
+
+   Index: Everything
+   Class Index: Classes
+   Function Index: Functions
+   Interface Index: Interfaces
+   Property Index: Properties
+   Variable Index: Variables
+   File Index: Files
+   }  # Group: Index
+

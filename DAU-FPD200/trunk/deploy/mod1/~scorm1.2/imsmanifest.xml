@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<manifest identifier="EnspireStandardManifest" version="1.0"
+	xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+	xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd 					http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd 					http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+	<metadata />
+	<organizations default="A0_ORG">
+		<organization identifier="A0_ORG">
+			<title>[CLIENT NAME] - [COURSE TITLE]</title>
+			<item identifier="A0_ITEM" identifierref="R_S100001_01" isvisible="true">
+				<title>[CLIENT NAME] - [COURSE TITLE]</title>
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="R_S100001_01" type="webcontent" adlcp:scormtype="sco" href="content/scoIndex.html" />
+	</resources>
+</manifest>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- MOD 1:	Check the wiki for an explanation  of these-->
+<configs>
+	<!-- ILE -->
+	<config name="bIFT" value="true" />
+	<config name="sRelease" value="alpha" />
+	<config name="bAutoplay" value="false" />
+	
+	
+	<!-- GUI-->
+	<config name="nFadeDuration" value="1" />
+	<config name="bFadeInSegs" value="true" />
+	<config name="bPulseNext" value="true" />
+	<config name="sDefaultTab" value="captionstab" />
+	<config name="bFadeInActivity" value="true" />
+	<config name="bTitleSeg" value="true" />
+	<config name="sTitleTab" value="navtab" />
+	<config name="bTooltips" value="true" />
+	<config name="bFormatButton" value="true" />
+	
+	<config name="sGlossaryUrl" value="resources/Glossary.pdf" />
+	
+	<profile name="Tooltip">
+		<config name="sSkin" value="sdasddtooltip" />
+		<config name="nPosX" value="53" />
+		<config name="nPosY" value="35" />
+		<config name="sAlign" value="center" />
+		<config name="bFade" value="true" />
+		<config name="nFadeSpeed" value="1" />
+		<config name="nMaxTipWidth" value="110" />
+	</profile>
+	
+	<!-- save data order -->
+	<config name="aSaveOrder" value="[]" />
+	
+	<!-- audio -->
+	<config name="bAudio" value="true" />
+	<config name="bTitleAudio" value="true" />
+	
+	<!-- debug -->
+	
+	
+	<!-- accessibilty -->
+	<config name="bAccessible" value="true" />
+	<config name="aReadOrder" value="[controls,content,alert]" />
+	
+	<!-- LMS -->
+	<config name="bLMS" value="true" />
+	<config name="bLMSCompleteOnEnd" value="true" />
+	<config name="sLMSBookmark" value="lms" />
+	<config name="sCookieId" value="app" />
+	<config name="nScorePassing" value="80" />
+		
+		
+	<!-- Resource Display -->
+	<profile name="ResourcePanel">
+		<config name="sSkin" value="ResourceLink" />
+		<config name="sDefaultGroup" value="course" />
+	</profile>
+	
+	<!-- Interactivity -->
+	
+	<!-- Global Interactivity Settings -->
+	<config name="bEnableAfterAudio" value="true" />
+	<config name="bDisableOnStart" value="true" />
+	<config name="bDisableForSB" value="true" />
+	<config name="bGateHotSpots" value="false" />
+	<config name="nHotSpotFadeSpeed" value="1" />
+	
+	<profile name="Instructions">
+		<config name="xAlign" value="center" />
+		<config name="yAlign" value="center" />
+	</profile>
+
+	<profile name="Feedback">
+		<config name="xAlign" value="center" />
+		<config name="yAlign" value="center" />
+	</profile>
+	
+	<!-- Activity Profiles -->
+	
+							<!-- Multiple Choice -->
+	<profile name="MultChoice">
+		<config name="nTries" value="2" />
+		<config name="sFeedbackType" value="general" />
+		<config name="sLabelCorrect" value="close" />
+		<config name="sLabelIncorrect" value="tryAgain" />
+		<config name="sFinish" value="next" />
+		<config name="bRandomizeChoices" value="true" />
+		<config name="bGate" value="false" />
+		<config name="nChoiceSpacing" value="5" />
+		<config name="bSubmit" value="true" />
+		
+		<config name="sPopupSkin" value="FeedbackPopup" />
+		<config name="sChoiceSkin" value="MultChoice_Choice" />
+		<config name="sSkin" value="MultChoice" />
+	</profile>
+	
+	<profile name="MultChoiceGeneral">
+		<config name="nTries" value="2" />
+		<config name="sFeedbackType" value="general" />
+		<config name="sLabelCorrect" value="close" />
+		<config name="sLabelIncorrect" value="tryAgain" />
+		<config name="sFinish" value="pulse" />
+		<config name="bRandomizeChoices" value="true" />
+		<config name="bGate" value="false" />
+		<config name="nChoiceSpacing" value="5" />
+		<config name="bSubmit" value="true" />
+		
+		<config name="sPopupSkin" value="FeedbackPopup" />
+		<config name="sChoiceSkin" value="MultChoice_Choice" />
+		<config name="sSkin" value="MultChoice" />
+	</profile>
+	
+	<profile name="MultChoiceSpecific">
+		<config name="nTries" value="2" />
+		<config name="sFeedbackType" value="specific" />
+		<config name="sLabelCorrect" value="close" />
+		<config name="sLabelIncorrect" value="tryAgain" />
+		<config name="sFinish" value="pulse" />
+		<config name="bRandomizeChoices" value="true" />
+		<config name="bGate" value="false" />
+		<config name="nChoiceSpacing" value="5" />
+		<config name="bSubmit" value="true" />
+		
+		<config name="sPopupSkin" value="FeedbackPopup" />
+		<config name="sChoiceSkin" value="MultChoice_Choice" />
+		<config name="sSkin" value="MultChoice" />
+
+	</profile>
+	
+	
+	<profile name="MultChoiceBranching">
+		<config name="nTries" value="3" />
+		<config name="sFeedbackType" value="branching" />
+		<config name="sLabelCorrect" value="close" />
+		<config name="sLabelIncorrect" value="tryAgain" />
+		<config name="sFinish" value="pulse" />
+		<config name="bRandomizeChoices" value="false" />
+		<config name="bGate" value="true" />
+		<config name="nChoiceSpacing" value="5" />
+		<config name="bSubmit" value="true" />
+		
+		<config name="sPopupSkin" value="FeedbackPopup" />
+		<config name="sChoiceSkin" value="MultChoiceBranching_Choice" />
+		<config name="sSkin" value="MultChoiceBranching" />
+
+	</profile>
+	
+	
+					
+						
+						<!-- Multiple Select -->
+	<profile name="MultSelect">
+		<config name="nTries" value="2" />
+		<config name="sFeedbackType" value="specific" />
+		<config name="sLabelCorrect" value="close" />
+		<config name="sLabelIncorrect" value="tryAgain" />
+		<config name="sFinish" value="pulse" />
+		<config name="bRandomizeChoices" value="false" />
+		<config name="bGate" value="false" />
+		<config name="nChoiceSpacing" value="5" />
+		
+		<config name="sPopupSkin" value="FeedbackPopup" />
+		<config name="sChoiceSkin" value="MultSelect_Choice" />
+		<config name="sSkin" value="MultSelect" />
+	</profile>
+	
+	<profile name="MultSelectGeneral">
+		<config name="nTries" value="2" />
+		<config name="sFeedbackType" value="general" />
+		<config name="sLabelCorrect" value="close" />
+		<config name="sLabelIncorrect" value="tryAgain" />
+		<config name="sFinish" value="pulse" />
+		<config name="bRandomizeChoices" value="true" />
+		<config name="bGate" value="true" />
+		<config name="nChoiceSpacing" value="5" />
+		
+		<config name="sPopupSkin" value="FeedbackPopup" />
+		<config name="sChoiceSkin" value="MultSelect_Choice" />
+		<config name="sSkin" value="MultSelect" />
+	</profile>
+
+	
+	
+									
+						
+						
+						<!-- Hotspots -->
+	
+	<profile name="Hotspot">
+		<config name="sMode" value="follow" />
+		<config name="sEvent" value="roll" />
+		<config name="sPopupSkin" value="HotSpotPopup_0" />
+		<config name="sPopupType" value="interactivity" />
+		<config name="bGate" value="false" />
+		<config name="sButtonLabel" value="close" />
+	</profile>
+	
+	<profile name="HotspotClick">
+		<config name="sMode" value="fixed" />
+		<config name="sEvent" value="release" />
+		<config name="sPopupSkin" value="HotSpotPopup_1" />
+		<config name="sPopupType" value="interactivity" />
+		<config name="bGate" value="false" />
+		<config name="sButtonLabel" value="close" />
+	</profile>
+	
+	<profile name="HotspotClickFull">
+		<config name="sMode" value="fixed" />
+		<config name="sEvent" value="release" />
+		<config name="sPopupSkin" value="HotSpotFull" />
+		<config name="sPopupType" value="interactivity" />
+		<config name="bGate" value="false" />
+		<config name="sButtonLabel" value="close" />
+	</profile>
+	
+	<profile name="HotspotTabbed">
+		<config name="sMode" value="fixed" />
+		<config name="sEvent" value="release" />
+		<config name="sPopupSkin" value="HotSpotPopup_Tab" />
+		<config name="sPopupType" value="interactivity" />
+		<config name="bGate" value="false" />
+		<config name="sButtonLabel" value="close" />
+	</profile>
+	
+	<profile name="HotspotTabbed2">
+		<config name="sMode" value="fixed" />
+		<config name="sEvent" value="release" />
+		<config name="sPopupSkin" value="HotSpotPopup_Tab2" />
+		<config name="sPopupType" value="interactivity" />
+		<config name="bGate" value="false" />
+		<config name="sButtonLabel" value="close" />
+	</profile>
+	
+	<profile name="HotspotFullScreen">
+		<config name="sMode" value="fixed" />
+		<config name="sEvent" value="release" />
+		<config name="sPopupSkin" value="FeedbackPopup" />
+		<config name="sPopupType" value="template" />
+		<config name="bGate" value="false" />
+		<config name="sButtonLabel" value="close" />
+	</profile>
+		
+		
+	<!-- Template Profiles -->	
+	
+					<!-- Bullet Lists -->
+	<profile name="BulletList">
+		<config name="nBulletSpacing" value="15" />
+		<config name="nSubBulletSpacing" value="5" />
+		<config name="sSkin" value="BulletList" />
+		<config name="sBulletSkin" value="BulletList_Item" />
+		<config name="sSubBulletSkin" value="BulletList_SubItem" />
+	</profile>
+	
+	<profile name="BulletListLeft">
+		<config name="nBulletSpacing" value="15" />
+		<config name="nSubBulletSpacing" value="5" />
+		<config name="sSkin" value="BulletListLeft" />
+		<config name="sBulletSkin" value="BulletListLeft_Item" />
+		<config name="sSubBulletSkin" value="BulletListLeft_SubItem" />
+	</profile>
+
+	
+
+</configs>

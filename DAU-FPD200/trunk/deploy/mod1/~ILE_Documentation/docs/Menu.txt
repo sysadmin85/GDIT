@@ -1,0 +1,266 @@
+Format: 1.35
+
+
+Title: ILE 1.6
+SubTitle: Enspire ILE/Mantcore Application Development Library
+
+# You can add a footer to your documentation like this:
+# Footer: [text]
+# If you want to add a copyright notice, this would be the place to do it.
+
+
+# --------------------------------------------------------------------------
+# 
+# Cut and paste the lines below to change the order in which your files
+# appear on the menu.  Don't worry about adding or removing files, Natural
+# Docs will take care of that.
+# 
+# You can further organize the menu by grouping the entries.  Add a
+# "Group: [name] {" line to start a group, and add a "}" to end it.
+# 
+# You can add text and web links to the menu by adding "Text: [text]" and
+# "Link: [name] ([URL])" lines, respectively.
+# 
+# The formatting and comments are auto-generated, so don't worry about
+# neatness when editing the file.  Natural Docs will clean it up the next
+# time it is run.  When working with groups, just deal with the braces and
+# forget about the indentation and comments.
+# 
+# --------------------------------------------------------------------------
+
+
+Group: Accessibility  {
+
+   File: AccessManager  (accessibility\AccessManager.as)
+   File: ReadGroup  (no auto-title, accessibility\ReadGroup.as)
+   File: ReadItem  (no auto-title, accessibility\ReadItem.as)
+   File: Keyboard  (no auto-title, accessibility\Keyboard.as)
+   File: KeyboardCommand  (no auto-title, accessibility\KeyboardCommand.as)
+   File: KeyboardEvent  (no auto-title, accessibility\KeyboardEvent.as)
+   }  # Group: Accessibility
+
+Group: Core  {
+
+   File: Command  (no auto-title, core\Command.as)
+   File: CommandLibrary  (no auto-title, core\CommandLibrary.as)
+   File: CompoundCommand  (no auto-title, core\CompoundCommand.as)
+   File: Event  (no auto-title, core\Event.as)
+   File: ICommand  (no auto-title, core\ICommand.as)
+   File: Server  (core\Server.as)
+   File: SimpleCommand  (no auto-title, core\SimpleCommand.as)
+   File: SoundManager  (no auto-title, core\SoundManager.as)
+   File: VersionInfo  (no auto-title, core\VersionInfo.as)
+   }  # Group: Core
+
+Group: Debug  {
+
+   File: ConsoleWindow  (no auto-title, debug\ConsoleWindow.as)
+   File: ConsoleCheckBox  (debug\ConsoleCheckBox.as)
+   File: JumpMenu  (debug\JumpMenu.as)
+   File: AppConsole  (debug\AppConsole.as)
+   File: ArgsConsole  (debug\ArgsConsole.as)
+   File: BaseConsole  (debug\BaseConsole.as)
+   File: ConsoleManager  (debug\ConsoleManager.as)
+   File: LMSConsole  (debug\LMSConsole.as)
+   File: SoundConsole  (debug\SoundConsole.as)
+   }  # Group: Debug
+
+Group: Display  {
+
+   File: ContentArea  (display\ContentArea.as)
+   File: BaseDisplayManager  (no auto-title, display\BaseDisplayManager.as)
+   File: BaseGui  (no auto-title, display\BaseGui.as)
+   File: ContentContainer  (no auto-title, display\ContentContainer.as)
+   File: LayoutUtils  (no auto-title, display\LayoutUtils.as)
+   File: PopupManager  (no auto-title, display\PopupManager.as)
+   File: TabControl  (no auto-title, display\TabControl.as)
+   File: TabSet  (no auto-title, display\TabSet.as)
+
+   Group: Layout  {
+
+      File: BaseLayout  (display\layout\BaseLayout.as)
+      File: BoxLayout  (display\layout\BoxLayout.as)
+      File: ClipSlider  (display\layout\ClipSlider.as)
+      File: FlowLayout  (display\layout\FlowLayout.as)
+      File: Frame  (display\layout\Frame.as)
+      File: GridLayout  (display\layout\GridLayout.as)
+      File: ILayout  (display\layout\ILayout.as)
+      File: SlidePosition  (display\layout\SlidePosition.as)
+      File: ToggleClipSlider  (display\layout\ToggleClipSlider.as)
+      }  # Group: Layout
+
+   Group: Alerts  {
+
+      File: AlertTemplate  (display\alerts\AlertTemplate.as)
+      File: IAlertTemplate  (display\alerts\IAlertTemplate.as)
+      File: InstructionsBanner  (display\alerts\InstructionsBanner.as)
+      }  # Group: Alerts
+
+   Group: Templates  {
+
+      File: BaseTemplate  (display\templates\BaseTemplate.as)
+      File: BulletList  (display\templates\BulletList.as)
+      File: ITemplate  (display\templates\ITemplate.as)
+      File: ListSimpleBullet  (display\templates\ListSimpleBullet.as)
+      }  # Group: Templates
+
+   Group: Controls  {
+
+      File: BaseControl  (display\controls\BaseControl.as)
+      File: BaseControlWrapper  (display\controls\BaseControlWrapper.as)
+      File: ControlGroup  (display\controls\ControlGroup.as)
+      File: GuiControl  (display\controls\GuiControl.as)
+      File: ServerControlWrapper  (display\controls\ServerControlWrapper.as)
+      }  # Group: Controls
+
+   File: TextBox  (no auto-title, display\TextBox.as)
+   File: BaseDisplayObject  (no auto-title, display\BaseDisplayObject.as)
+   File: HotSpotManager  (no auto-title, display\HotSpotManager.as)
+   File: ITemplateFactory  (no auto-title, display\ITemplateFactory.as)
+   File: TemplateFactory  (no auto-title, display\TemplateFactory.as)
+   File: Tooltip  (no auto-title, display\Tooltip.as)
+
+   Group: Panels  {
+
+      File: ClipMouseScroller  (display\panels\ClipMouseScroller.as)
+      File: NarrationContainer  (display\panels\NarrationContainer.as)
+      File: PageNumberDisplay  (display\panels\PageNumberDisplay.as)
+      File: SimpleClipMenu  (display\panels\SimpleClipMenu.as)
+      File: SimpleResourceDisplay  (display\panels\SimpleResourceDisplay.as)
+      File: TitleBar  (display\panels\TitleBar.as)
+      }  # Group: Panels
+
+   }  # Group: Display
+
+Group: Ile  {
+
+   File: AppController  (ile\AppController.as)
+   File: BaseAppController  (ile\BaseAppController.as)
+   File: AppEvents  (no auto-title, ile\AppEvents.as)
+   File: IleEvent  (no auto-title, ile\IleEvent.as)
+   File: Release  (no auto-title, ile\Release.as)
+   File: GuiController  (no auto-title, ile\GuiController.as)
+
+   Group: Commands  {
+
+      File: CourseExit  (ile\commands\CourseExit.as)
+      File: SegAutoplay  (ile\commands\SegAutoplay.as)
+      File: SegBack  (no auto-title, ile\commands\SegBack.as)
+      File: SegMute  (ile\commands\SegMute.as)
+      File: SegNext  (no auto-title, ile\commands\SegNext.as)
+      File: SegPause  (ile\commands\SegPause.as)
+      File: SegPlay  (ile\commands\SegPlay.as)
+      File: SegReplay  (ile\commands\SegReplay.as)
+      }  # Group: Commands
+
+   }  # Group: Ile
+
+Group: Interactivity  {
+
+   File: Activity  (interactivity\Activity.as)
+   File: ActivityTypeData  (interactivity\ActivityTypeData.as)
+   File: ChoiceEvaluator  (interactivity\ChoiceEvaluator.as)
+   File: controls.BaseActivityControl  (interactivity\controls\BaseActivityControl.as)
+   File: IInteractivityFactory  (interactivity\IInteractivityFactory.as)
+   File: InteractivityFactory  (interactivity\InteractivityFactory.as)
+   File: InteractivityManager  (interactivity\InteractivityManager.as)
+   File: QuizManager  (interactivity\QuizManager.as)
+   File: SelectionManager  (interactivity\SelectionManager.as)
+
+   Group: Templates  {
+
+      File: BaseActivityDisplayManager  (interactivity\templates\BaseActivityDisplayManager.as)
+      File: SimpleChoiceDisplay  (interactivity\templates\SimpleChoiceDisplay.as)
+      }  # Group: Templates
+
+   Group: Types  {
+
+      File: BaseActivityController  (interactivity\types\BaseActivityController.as)
+      File: ChoiceController  (interactivity\types\ChoiceController.as)
+      }  # Group: Types
+
+   }  # Group: Interactivity
+
+Group: Lms  {
+
+   File: LMSCommands  (no auto-title, lms\LMSCommands.as)
+   }  # Group: Lms
+
+Group: Model  {
+
+   File: BaseUserData  (model\BaseUserData.as)
+   File: BList  (model\BulletListModel.as)
+   File: BookmarkManager  (model\BookmarkManager.as)
+   File: BulletModel  (model\BulletModel.as)
+   File: ChoiceData  (model\ChoiceData.as)
+   File: ClipSplashCollector  (model\ClipSplashCollector.as)
+   File: Configs  (model\Configs.as)
+   File: CourseModel  (model\CourseModel.as)
+   File: FontTranslator  (model\FontTranslator.as)
+   File: Globals  (model\Globals.as)
+   File: HotSpotData  (model\HotSpotData.as)
+   File: ICourseModel  (model\ICourseModel.as)
+   File: ILELocation  (model\ILELocation.as)
+   File: IleModel  (model\IleModel.as)
+   File: IModelCollector  (model\IModelCollector.as)
+   File: IUserData  (model\IUserData.as)
+   File: Labels  (model\Labels.as)
+   File: LimitedStack  (model\LimitedStack.as)
+   File: ModelCollector  (model\ModelCollector.as)
+   File: QuizData  (model\QuizData.as)
+   File: QuizDataItem  (model\QuizDataItem.as)
+   File: QuizModelCollector  (model\QuizModelCollector.as)
+   File: ResourceData  (model\ResourceData.as)
+   File: ResourceGroup  (model\ResourceGroup.as)
+   File: Resources  (model\Resources.as)
+   File: SimpleUserData  (model\SimpleUserData.as)
+   File: State  (model\State.as)
+
+   Group: Structure  {
+
+      File: BranchData  (model\structure\BranchData.as)
+      File: BranchingSegmentData  (model\structure\BranchingSegmentData.as)
+      File: ChapterData  (model\structure\ChapterData.as)
+      File: ClipData  (model\structure\ClipData.as)
+      File: SectionData  (model\structure\SectionData.as)
+      File: SegmentData  (model\structure\SegmentData.as)
+      File: StructureData  (model\structure\StructureData.as)
+      }  # Group: Structure
+
+   File: XMLLibrary  (model\XMLLibrary.as)
+   }  # Group: Model
+
+Group: Utils  {
+
+   File: BooleanUtils  (no auto-title, utils\BooleanUtils.as)
+   File: ConstructorUtil  (no auto-title, utils\ConstructorUtil.as)
+   File: GarbageCollection  (no auto-title, utils\GarbageCollection.as)
+   File: NumberUtils  (no auto-title, utils\NumberUtils.as)
+   File: StringUtils  (no auto-title, utils\StringUtils.as)
+   File: TextFieldUtils  (no auto-title, utils\TextFieldUtils.as)
+   File: TimeUtils  (no auto-title, utils\TimeUtils.as)
+   File: UrlUtils  (no auto-title, utils\UrlUtils.as)
+   File: ILE_utils  (utils\ILE_utils.as)
+   File: ClipUtils  (no auto-title, utils\ClipUtils.as)
+   File: DisplayUtils  (no auto-title, utils\DisplayUtils.as)
+   }  # Group: Utils
+
+File: ILoader  (loader\ILoader.as)
+File: LoadData  (loader\LoadData.as)
+File: LoaderEvent  (loader\LoaderEvent.as)
+File: Preloader  (loader\Preloader.as)
+File: PreloaderEvent  (loader\PreloaderEvent.as)
+File: SoundLoader  (loader\SoundLoader.as)
+File: SwfLoader  (loader\SwfLoader.as)
+File: XmlLoader  (loader\XmlLoader.as)
+
+Group: Index  {
+
+   Index: Everything
+   Class Index: Classes
+   Function Index: Functions
+   Interface Index: Interfaces
+   Property Index: Properties
+   Variable Index: Variables
+   }  # Group: Index
+

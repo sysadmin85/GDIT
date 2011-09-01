@@ -1,0 +1,9 @@
+<!-- See ILE -  Audio/Video documentation for how to use -->
+<?xml version="1.0" encoding="utf-8"?>
+<audio>
+	<fxs>
+	</fxs>
+	<loops>
+		<sound id="" url="" vol="" loops=""/>
+	</loops>
+</audio>

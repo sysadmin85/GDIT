@@ -1,0 +1,364 @@
+<project default="local-deploy" basedir="../..">
+	<tstamp>
+           <format property="timestamp" pattern="yyyy-MM-dd_HH-mm-ss"/>
+	</tstamp>
+	<property name="name" value="Enspire - ILE"/>
+	<property name="build.log.filename" value="build_${timestamp}.log"/>
+	<record name="${build.log.filename}" action="start" loglevel="verbose" append="no" />
+	<echo message="'${build.log.filename}'"/>
+	
+    <property file="collateral/build/custom.properties"/>
+    <property name="common-remote-rsync-flags" value=" -e ssh --delete --verbose --partial --times --recursive --compress --copy-links --perms --bwlimit=300"/>
+    <property name="common-rsync-flags" value=" --perms --delete --verbose --copy-links --partial --times --recursive" />
+    <property name="local-deploy-dir" location="/www/default/html/${deploy-dir-prefix}/${release-tag}/${appid}"/>
+    
+    <target name="init">
+        <mkdir dir="collateral/work"/>
+        <chmod dir="collateral/work" perm="ugo+rwx" includes="**/*" type="both"/>
+        
+        <condition property="badappid">
+            <or>
+                <equals trim="true" arg1="${appid}" arg2="app-name"/>
+                <equals trim="true" arg1="${appid}" arg2=""/>
+                <contains string="${appid}" substring="."/>
+                <contains string="${appid}" substring="/"/>
+            </or>
+        </condition>
+        <fail if="badappid" message="Malformed appid: '${appid}'. Edit 'custom.properties' file in build directory."/>
+    </target>
+    
+	
+
+    <target name="compile" depends="init">
+        <!-- Use this target for any project-specific compilation that needs to happen.
+                * Compiling source code
+                * Copying shared assets from a central repository
+                * Anything else that has to happen before a build
+        -->
+		 
+		<echo message="&lt;strong&gt;Starting subversion update:&lt;/strong&gt;"/>
+		<exec executable="/usr/bin/svn">
+			<arg line="update ."/>
+		</exec>
+		<echo message="&lt;strong&gt;Building the full-struct.xml:&lt;/strong&gt;"/>
+		<exec executable="/usr/local/bin/python2.5">
+			<arg line="collateral/build/pysmile.py"/>
+        </exec>
+    </target>
+    
+    <target name="local-deploy" depends="compile" description="Deploy application to webtest.">
+        <mkdir dir="${local-deploy-dir}"/>
+        <chmod dir="${local-deploy-dir}" perm="ugo+rwx" includes="**/*" type="both"/>
+        <exec executable="rsync" vmlauncher="false">
+            <arg line="${common-rsync-flags} ${rsync-filelist} . ${local-deploy-dir}"/>
+        </exec>
+    </target>
+    
+    <target name="rackspace-deploy" depends="local-deploy" description="Deploy application to rackspace">
+        <exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} ${local-deploy-dir} enspire@72.3.249.120:/www/rackspace.enspire.com/html/${deploy-dir-prefix}/${release-tag}"/>
+        </exec>
+    </target>
+    
+    <target name="production-deploy" depends="local-deploy" description="Deploy application to www">
+        <exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} ${local-deploy-dir} enspire@72.3.249.120:/www/www.enspire.com/html/${deploy-dir-prefix}/${release-tag}"/>
+        </exec>
+    </target>
+	<!--
+			These are the targets for the UBS packages.
+	-->
+	<target name="web_zip" depends="local-deploy" description="generate scorm zip file of content">
+		<echo message="Web deploy-able package coming up!"/>
+		<delete dir="${basedir}/~temp/web"/>
+		
+		<echo message="Syncing static files to temp..."/>
+		<sync todir="${basedir}/~temp/web" verbose="true">
+			<fileset dir="${basedir}">
+				<exclude name="**/*.as" />
+				<exclude name="**/*.fla" />
+				<exclude name="**/*.tmp" />
+				<exclude name="**/*.zip" />
+				<exclude name="**/~*/**" />
+				<exclude name="**/.svn/**" />
+				<exclude name="**/app-info/**" />
+				<exclude name="**/classes/**" />
+				<exclude name="**/collateral/**" />
+				<exclude name="**/gui_preview/**" />
+				<exclude name="**/ift/**" />
+				<exclude name="**/aiccIndex.html" />
+				<exclude name="**/scoIndex.html" />
+				<exclude name="**/scripts/aiccAPI.js" />
+				<exclude name="**/scripts/api.js" />
+				<exclude name="**/structure.html" />
+				<exclude name="**/interactivity/*.txt" />
+				<exclude name="**/build.xml" />
+				<exclude name="**/ile.exe" />
+			</fileset>
+		</sync>
+		
+		<echo message="Creating the ZIP file..."/>
+		<delete file="${basedir}/~temp/packages/${appid}_WEB_${release-tag}.zip"/>
+  		<zip destfile="${basedir}/~temp/packages/${appid}_WEB_${release-tag}.zip" basedir="${basedir}/~temp/web" update="false" />
+		<delete dir="${basedir}/~temp/web"/>
+		
+		<echo message="Sending content to the review server..."/>
+		<exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} ${basedir}/~temp/packages/ enspire@72.3.249.120:/www/www.enspire.com/html/${deploy-dir-prefix}/packages/${appid}"/>
+        </exec>
+		
+	</target>
+	
+	<target name="scorm_zip" depends="local-deploy" description="generate scorm zip file of content">
+		<echo message="SCORM 1.2 package coming up!"/>
+		<delete dir="${basedir}/~temp/scorm"/>
+		
+		<echo message="Syncing static files to temp..."/>
+		<sync todir="${basedir}/~temp/scorm/content" verbose="true">
+			<fileset dir="${basedir}">
+				<exclude name="**/*.as" />
+				<exclude name="**/*.fla" />
+				<exclude name="**/*.tmp" />
+				<exclude name="**/*.zip" />
+				<exclude name="**/~*/**" />
+				<exclude name="**/.svn/**" />
+				<exclude name="**/app-info/**" />
+				<exclude name="**/classes/**" />
+				<exclude name="**/collateral/**" />
+				<exclude name="**/gui_preview/**" />
+				<exclude name="**/ift/**" />
+				<exclude name="**/index_images/**" />
+				<exclude name="**/aiccIndex.html" />
+				<exclude name="**/scripts/aiccAPI.js" />
+				<exclude name="**/index.html" />
+				<exclude name="**/movie.html" />
+				<exclude name="**/popup.html" />
+				<exclude name="**/structure.html" />
+				<exclude name="**/interactivity/*.txt" />
+				<exclude name="**/build.xml" />
+				<exclude name="**/ile.exe" />
+			</fileset>
+		</sync>
+		
+		<echo message="Copying SCORM 1.2 files..."/>
+		<copy todir="${basedir}/~temp/scorm" verbose="true">
+			<fileset dir="${basedir}/collateral/templates/scorm1.2">
+				<exclude name="imsmanifest.xml" />
+			</fileset>
+		</copy>
+		
+		<echo message="Creating SCORM 1.2 IMS manifest..." />
+		<exec executable="/usr/bin/python">
+			<arg line="collateral/build/SuperIMSGenrator.py '${name}'"/>
+        </exec>
+		
+		<echo message="Creating the ZIP file..."/>
+		<delete file="${basedir}/~temp/packages/${appid}_SCORM_${release-tag}.zip"/>
+  		<zip destfile="${basedir}/~temp/packages/${appid}_SCORM_${release-tag}.zip" basedir="${basedir}/~temp/scorm" update="false" />
+		<delete dir="${basedir}/~temp/scorm"/>
+		
+		<echo message="Sending content to the review server..."/>
+		<exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} ${basedir}/~temp/packages/ enspire@72.3.249.120:/www/www.enspire.com/html/${deploy-dir-prefix}/packages/${appid}"/>
+        </exec>
+		
+	</target>
+	
+	<target name="aicc_zip" depends="local-deploy" description="generate scorm zip file of content">
+		<echo message="AICC-HACP package coming up!"/>
+		<delete dir="${basedir}/~temp/aicc"/>
+		
+		<echo message="Syncing static files to temp..."/>
+		<sync todir="${basedir}/~temp/aicc/content" verbose="true">
+			<fileset dir="${basedir}">
+				<exclude name="**/*.as" />
+				<exclude name="**/*.fla" />
+				<exclude name="**/*.tmp" />
+				<exclude name="**/*.zip" />
+				<exclude name="**/~*/**" />
+				<exclude name="**/.svn/**" />
+				<exclude name="**/app-info/**" />
+				<exclude name="**/classes/**" />
+				<exclude name="**/collateral/**" />
+				<exclude name="**/gui_preview/**" />
+				<exclude name="**/ift/**" />
+				<exclude name="**/index_images/**" />
+				<exclude name="**/scoIndex.html" />
+				<exclude name="**/scripts/api.js" />
+				<exclude name="**/index.html" />
+				<exclude name="**/movie.html" />
+				<exclude name="**/popup.html" />
+				<exclude name="**/structure.html" />
+				<exclude name="**/interactivity/*.txt" />
+				<exclude name="**/build.xml" />
+				<exclude name="**/ile.exe" />
+			</fileset>
+		</sync>
+		
+		<echo message="Copying AICC-HACP files..."/>
+		<copy todir="${basedir}/~temp/aicc" verbose="true">
+			<fileset dir="${basedir}/collateral/templates/aicc_hacp" />
+		</copy>
+		
+		<echo message="Creating the ZIP file..."/>
+		<delete file="${basedir}/~temp/packages/${appid}_HACP_${release-tag}.zip"/>
+  		<zip destfile="${basedir}/~temp/packages/${appid}_HACP_${release-tag}.zip" basedir="${basedir}/~temp/aicc" update="false" />
+		<delete dir="${basedir}/~temp/aicc"/>
+		
+		<echo message="Sending content to the review server..."/>
+		<exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} ${basedir}/~temp/packages/ enspire@72.3.249.120:/www/www.enspire.com/html/${deploy-dir-prefix}/packages/${appid}"/>
+        </exec>
+		
+	</target>
+	
+	<target name="cd_zip" depends="local-deploy" description="generate scorm zip file of content">
+		<echo message="CD package coming up!"/>
+		<delete dir="${basedir}/~temp/cd"/>
+		
+		<echo message="Syncing static files to temp..."/>
+		<sync todir="${basedir}/~temp/cd" verbose="true">
+			<fileset dir="${basedir}">
+				<exclude name="**/*.as" />
+				<exclude name="**/*.fla" />
+				<exclude name="**/*.tmp" />
+				<exclude name="**/*.zip" />
+				<exclude name="**/~*/**" />
+				<exclude name="**/.svn/**" />
+				<exclude name="**/app-info/**" />
+				<exclude name="**/classes/**" />
+				<exclude name="**/collateral/**" />
+				<exclude name="**/gui_preview/**" />
+				<exclude name="**/ift/**" />
+				<exclude name="**/index_images/**" />
+				<exclude name="**/aiccIndex.html" />
+				<exclude name="**/scoIndex.html" />
+				<exclude name="**/scripts/aiccAPI.js" />
+				<exclude name="**/scripts/api.js" />
+				<exclude name="**/index.html" />
+				<exclude name="**/movie.html" />
+				<exclude name="**/popup.html" />
+				<exclude name="**/structure.html" />
+				<exclude name="**/upgrade_flash.html" />
+				<exclude name="**/interactivity/*.txt" />
+				<exclude name="**/build.xml" />
+				<exclude name="**/ile.swf" />
+			</fileset>
+		</sync>
+		
+		<echo message="Copying autorun.inf file..."/>
+		<copy todir="${basedir}/~temp/cd" verbose="true">
+			<fileset dir="${basedir}/collateral/templates/cd" />
+		</copy>
+		
+		<echo message="Creating the ZIP file..."/>
+		<delete file="${basedir}/~temp/packages/${appid}_CD_${release-tag}.zip"/>
+  		<zip destfile="${basedir}/~temp/packages/${appid}_CD_${release-tag}.zip" basedir="${basedir}/~temp/cd" update="false" />
+		<delete dir="${basedir}/~temp/cd"/>
+		
+		<echo message="Sending content to the review server..."/>
+		<exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} ${basedir}/~temp/packages/ enspire@72.3.249.120:/www/www.enspire.com/html/${deploy-dir-prefix}/packages/${appid}"/>
+        </exec>
+		
+	</target>
+	
+	<target name="source_zip" depends="local-deploy" description="generate scorm zip file of content">
+		<echo message="Web deploy-able package coming up!"/>
+		<delete dir="${basedir}/~temp/source"/>
+		
+		<echo message="Syncing static files to temp..."/>
+		<sync todir="${basedir}/~temp/source" verbose="true">
+			<fileset dir="${basedir}">
+				<exclude name="**/*.tmp" />
+				<exclude name="**/*.zip" />
+				<exclude name="**/~*/**" />
+				<exclude name="**/.svn/**" />
+				<exclude name="**/collateral/**" />
+				<exclude name="**/gui_preview/**" />
+				<exclude name="**/ift/**" />
+				<exclude name="**/interactivity/*.txt" />
+				<exclude name="**/build.xml" />
+			</fileset>
+		</sync>
+		
+		<echo message="Creating the ZIP file..."/>
+		<delete file="${basedir}/~temp/packages/${appid}_SOURCE_${release-tag}.zip"/>
+  		<zip destfile="${basedir}/~temp/packages/${appid}_SOURCE_${release-tag}.zip" basedir="${basedir}/~temp/source" update="false" />
+		<delete dir="${basedir}/~temp/source"/>
+		
+		<echo message="Sending content to the review server..."/>
+		<exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} ${basedir}/~temp/packages/ enspire@72.3.249.120:/www/www.enspire.com/html/${deploy-dir-prefix}/packages/${appid}"/>
+        </exec>
+		
+	</target>
+
+
+	 <target name="wrap-audio" description="create all mp3's and wrap in audio-assets directory and put swf's in audio directory">
+        <delete>
+            <fileset dir="audio-wrap">
+                <include name="*.swf" />
+            </fileset>
+        </delete>
+        <apply executable="/usr/local/bin/lame" dir="~ audio assets" vmlauncher="false">
+            <arg value="-b" />
+            <arg value="32" />
+            <arg value="-m" />
+            <arg value="m" />
+            <arg value="-h" />
+            <arg value="-V" />
+            <arg value="3" />
+            <arg value="-B" />
+            <arg value="64" />
+            <arg value="-F" />
+            <arg value="--resample" />
+            <arg value="44.1" />
+            <fileset dir="~ audio assets">
+                <include name="*.wav" />
+            </fileset>
+        </apply>
+        <move todir="~ audio assets">
+            <fileset dir="~ audio assets">
+                <include name="*.mp3" />
+            </fileset>
+            <mapper type="glob" from="*.wav.mp3" to="*.mp3" />
+        </move>
+        <apply executable="/export0/enspire/admin/ile/1.0/utils/mp32swf/swiftmp3-linux/swift-mp3" dir="~ audio assets" vmlauncher="false">
+            <arg value="-fps" />
+            <arg value="24" />
+            <arg value="-spectrum" />
+            <arg value="0" />
+            <arg value="-stop" />
+            <arg value="1" />
+            <arg value="-goto" />
+            <arg value="endAudio" />
+            <fileset dir="~ audio assets">
+                <include name="*.mp3" />
+            </fileset>
+        </apply>
+        <delete>
+            <fileset dir="~ audio assets">
+                <include name="*.mp3" />
+            </fileset>
+        </delete>
+        <chmod dir="~ audio assets" perm="ugo+rwx" includes="*.swf" type="both" />
+        <move todir="audio-wrap">
+            <fileset dir="~ audio assets">
+                <include name="*.swf" />
+            </fileset>
+        </move>
+    </target>
+
+	<target name="gui_preview" depends="init" description="Deploy GUI preview to www (requires gui-preview folder in project folder)">
+        <exec executable="rsync" vmlauncher="false">
+            <arg line="${common-remote-rsync-flags} gui_preview enspire@72.3.249.120:/www/www.enspire.com/html/${deploy-dir-prefix}/${release-tag}/${appid}"/>
+        </exec>
+    </target>
+    
+    <target name="clean" description="delete generated directories and files">
+        <delete dir="work"/>
+		<record name="${build.log.filename}" action="stop"/>
+    </target>
+
+</project>

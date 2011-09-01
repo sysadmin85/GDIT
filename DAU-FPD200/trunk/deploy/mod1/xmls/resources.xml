@@ -1,0 +1,20 @@
+<!-- see ILE content for directions -->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<resources>
+	<group id="course" append="">
+		<resource id="" title="Resource 1: Enspire Learning Website" url="http://www.enspire.com" type="link"/>
+		<resource id="" title="Resource 2: Sample Pdf" url="./resources/Sample.pdf" type="pdf"/>
+	</group>
+	<group id="c1" append="">
+		<resource id="" title="c1" url="http://www.enspire.com" type="link"/>
+		<resource id="" title="Resource 2: Sample Pdf" url="./resources/Sample.pdf" type="pdf"/>
+	</group>
+	<group id="c2" append="c1">
+		<resource id="" title="C2" url="http://www.enspire.com" type="link"/>
+		<resource id="" title="Resource 2: Sample Pdf" url="./resources/Sample.pdf" type="pdf"/>
+	</group>
+	<group id="links" append="">
+		<resource id="link1" title="C2" url="http://www.enspire.com" type="link"/>
+		<resource id="link2" title="Resource 2: Sample Pdf" url="./resources/Sample.pdf" type="pdf"/>
+	</group>
+</resources>

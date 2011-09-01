@@ -1,0 +1,14 @@
+[Course]
+Course_Creator=Enspire Learning
+Course_ID=mod1
+Course_System=Enspire ILE
+Course_Title=ILE AICC-HACP Demo
+Level=1
+Max_Fields_CST=2
+Total_AUs=1
+Total_Blocks=1
+Version=3.0
+[Course_Behavior]
+Max_Normal=
+[Course_Description]
+AICC-HACP Demo

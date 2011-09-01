@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!-- filename=c2l_cp_rootv1p1.xsd -->
+<!-- Conforms to w3c http://www.w3.org/TR/xmlschema-1/ 2000-10-24-->
+<xsd:schema targetNamespace="http://www.click2learn.com/xsd/c2l_cp_rootv1p1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.click2learn.com/xsd/c2l_cp_rootv1p1" elementFormDefault="unqualified" version="Click2learn Version 1.1.3">
+	<!-- ******************** -->
+	<!-- ** Change History ** -->
+	<!-- ******************** -->
+	<xsd:annotation>
+		<xsd:documentation>Version 1.1.3</xsd:documentation>
+		<xsd:documentation> Nov 19, 2001</xsd:documentation>
+		<xsd:documentation>Mod for compatibility with ADL SCORM1.2 beta test suite</xsd:documentation>
+		<xsd:documentation xml:lang="en">This schema is Click2Learn Inc. specific</xsd:documentation>
+		<xsd:documentation> Copyright (c) 2001 Click2learn, Inc. </xsd:documentation>
+	</xsd:annotation>
+	<!-- ************************** -->
+	<!-- ** Simple Types  ** -->
+	<!-- ************************** -->
+	<xsd:simpleType name="stageType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="frame"/>
+			<xsd:enumeration value="popup"/>
+			<xsd:enumeration value="full screen"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="stageDimensionPixels">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="32000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="itemModeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="browse"/>
+			<xsd:enumeration value="review"/>
+			<xsd:enumeration value="normal"/>
+			<xsd:enumeration value=""/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ************************** -->
+	<!-- ** Complex Types  ** -->
+	<!-- ************************** -->
+	<xsd:complexType name="launchWindowType">
+		<xsd:all>
+			<xsd:element ref="windowtype" minOccurs="0" maxOccurs="1"/>
+			<xsd:element ref="width" minOccurs="0" maxOccurs="1"/>
+			<xsd:element ref="height" minOccurs="0" maxOccurs="1"/>
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:complexType name="techSpecType">
+		<xsd:all>
+			<xsd:element ref="launchwindow" minOccurs="0" maxOccurs="1"/>
+			<!-- Other elements to be inserted here -->
+		</xsd:all>
+	</xsd:complexType>
+	<!-- ************************** -->
+	<!-- ** Element Declarations ** -->
+	<!-- ************************** -->
+	<xsd:element name="windowtype" type="stageType"/>
+	<xsd:element name="launchwindow" type="launchWindowType"/>
+	<xsd:element name="width" type="stageDimensionPixels"/>
+	<xsd:element name="height" type="stageDimensionPixels"/>
+	<xsd:element name="required" type="techSpecType"/>
+	<xsd:element name="preferred" type="techSpecType"/>
+	<!-- mode element to be used with content packaging item until simple sequencing spec is available  -->
+	<xsd:element name="mode" type="itemModeType"/>
+</xsd:schema>

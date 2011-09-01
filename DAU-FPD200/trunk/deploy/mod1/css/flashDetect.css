@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #1b5977; /* dark blue */
+	background-color: #daebf1; /* light blue */
+	text-align: center;
+}
+h1 {
+	font-size: 1.3em;
+}
+p {
+	margin: 0px 0 16px 0;
+}
+p img {
+	margin-left: 10px;
+}
+a img {
+	border: 0;
+}
+a, a:link {
+	background-color: inherit;
+	color: #258dbf; /* bright blue */
+}
+#wrapper {
+	position: relative;
+	margin: auto;
+	padding: 34px 0 20px 0;
+	font-size: 0.8em;
+}
+#wrapper * {
+	text-align: left;
+}
+#info {
+	position: relative;
+	margin: auto;
+	width: 372px;
+}
+#info div.centered {
+	text-align: center;
+	width: 100%;
+	margin: auto;
+	padding: 16px 0 16px 0;
+}
+#info div.logo {
+	text-align: center;
+	width: 100%;
+	margin: auto;
+	padding: 16px 0 0px 0;
+}
+.info_top {
+	background: url("../index_images/info_top.gif") no-repeat center;
+	height: 32px;
+}
+.info_body {
+	background: url("../index_images/info_body.gif") repeat-y center;
+}
+.info_content {
+	padding: 5px 40px 0px 40px;
+}
+.info_bottom {
+	background: url("../index_images/info_bottom.gif") no-repeat center;
+	height: 31px;
+}
+p.noscript {
+	background: url("../index_images/info_body.gif") repeat-y center;
+	color: #ff0000;
+}

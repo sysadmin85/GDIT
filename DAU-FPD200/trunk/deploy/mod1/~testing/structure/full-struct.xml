@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <app appVer="1.0" id="Enspire Learning">
+    <mode bandwidth="low" connection="offline"/>
+    <chapters>
+    <chapter id="chap1" title="Chapter &lt;b&gt;One&lt;/b&gt;">
+    	<section id="sect1" title="Section &lt;i&gt;One&lt;/i&gt;">
+    		<clip id="c1" startSegId="s0" title="Clip One" url="">
+				<seg id="s0" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s1" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s2" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s3" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_" templateID="" url="">
+					<args text="" sBranchCompletion="all" sAfterBranchSeg="s5"/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_0a" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_0b" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_0c" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1a" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1b" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1c" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_2a" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_2b" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_2c" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s5" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+    		</clip>
+			<clip id="c2" startSegId="s0" title="Clip two" url="">
+				<seg id="s0" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s1" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s2" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s3" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_" templateID="" url="">
+					<args text=""  sBranchCompletion="all" sAfterBranchSeg="s5" />
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_0a" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_0b" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_0c" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1a" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1b_" templateID="" url="">
+					<args text="" sBranchCompletion="one" sAfterBranchSeg="s4_"/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1b_0a" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1b_0b" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s4_1b_1" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+				<seg id="s5" templateID="" url="">
+					<args text=""/>
+					<next branch="false" value=""/>
+   				</seg>
+			</clip
+    	></section>
+    </chapter>
+    </chapters>
+    </app>

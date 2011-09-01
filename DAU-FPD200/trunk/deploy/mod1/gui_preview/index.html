@@ -1,0 +1,63 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Enspire Learning, Inc. | GUI Preview</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+		<script type="text/javascript">
+
+//CHANGE THE FILE NAMEIN THIS NEXT LINE TO THE NAME OF YOUR GUI IMAGE:
+var GUI_IMAGE = "gui.jpg";
+//CHANGE THE BACKGROUND COLOR OF THE PAGE
+var BG_COLOR = "#daebf1";
+		
+		
+var req, image, warning, imagepath;
+function loadImage(_imagepath)
+{
+	docBody = document.getElementById("main_body");
+	docBody.style.backgroundColor = BG_COLOR;
+	image = document.getElementById("image");
+	imagepath = _imagepath;
+	
+	req = getreq();
+	req.onreadystatechange = imageExists;
+	req.open("get", imagepath, true);
+	req.send(null);
+}
+
+function imageExists()
+{
+	if(req.readyState == 4)
+	{
+		if(req.status == 200)
+		{
+			image.src = imagepath;
+		}
+		else
+		{
+			alert("Could not locate '" + imagepath + "'.");
+		}
+	}
+}
+
+function getreq()
+{
+	if(window.XMLHttpRequest)
+		return new XMLHttpRequest();
+	else if(window.ActiveXObject)
+		return new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+		</script>
+		<link href="gui_preview.css" rel="stylesheet" type="text/css"></link>
+	</head>
+	
+	<body id="main_body" onLoad="loadImage(GUI_IMAGE);">
+		
+		<div>
+			<img id="image" src="enspire_logo.gif"/>
+		</div>
+	
+	</body>
+</html>
