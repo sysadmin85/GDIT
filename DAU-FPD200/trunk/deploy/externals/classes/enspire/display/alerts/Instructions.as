@@ -1,0 +1,1 @@
+﻿import enspire.display.alerts.AlertTemplate;class enspire.display.alerts.Instructions extends AlertTemplate{		function Instructions() {		super();	}}

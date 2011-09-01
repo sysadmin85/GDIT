@@ -1,0 +1,147 @@
+Format: 1.4
+
+
+# You can add a title and sub-title to your menu like this:
+# Title: [project name]
+# SubTitle: [subtitle]
+
+# You can add a footer to your documentation like this:
+# Footer: [text]
+# If you want to add a copyright notice, this would be the place to do it.
+
+# You can add a timestamp to your documentation like one of these:
+# Timestamp: Generated on month day, year
+# Timestamp: Updated mm/dd/yyyy
+# Timestamp: Last updated mon day
+#
+#   m     - One or two digit month.  January is "1"
+#   mm    - Always two digit month.  January is "01"
+#   mon   - Short month word.  January is "Jan"
+#   month - Long month word.  January is "January"
+#   d     - One or two digit day.  1 is "1"
+#   dd    - Always two digit day.  1 is "01"
+#   day   - Day with letter extension.  1 is "1st"
+#   yy    - Two digit year.  2006 is "06"
+#   yyyy  - Four digit year.  2006 is "2006"
+#   year  - Four digit year.  2006 is "2006"
+
+
+# --------------------------------------------------------------------------
+# 
+# Cut and paste the lines below to change the order in which your files
+# appear on the menu.  Don't worry about adding or removing files, Natural
+# Docs will take care of that.
+# 
+# You can further organize the menu by grouping the entries.  Add a
+# "Group: [name] {" line to start a group, and add a "}" to end it.
+# 
+# You can add text and web links to the menu by adding "Text: [text]" and
+# "Link: [name] ([URL])" lines, respectively.
+# 
+# The formatting and comments are auto-generated, so don't worry about
+# neatness when editing the file.  Natural Docs will clean it up the next
+# time it is run.  When working with groups, just deal with the braces and
+# forget about the indentation and comments.
+# 
+# --------------------------------------------------------------------------
+
+
+File: ConstructorUtil  (interactivity\utils\ConstructorUtil.as)
+
+Group: Control  {
+
+   File: SimpleDDController  (interactivity\control\SimpleDDController.as)
+   File: SimpleHSController  (interactivity\control\SimpleHSController.as)
+   File: SimpleMCController  (interactivity\control\SimpleMCController.as)
+   File: SimpleMSController  (interactivity\control\SimpleMSController.as)
+   File: SimpleSequencingController  (interactivity\control\SimpleSequencingController.as)
+   File: SimpleSliderController  (interactivity\control\SimpleSliderController.as)
+   File: SimpleSliderController  (interactivity\control\SimpleMultSliderController.as)
+   }  # Group: Control
+
+Group: Display  {
+
+   File: IActivityDisplay  (interactivity\display\IActivityDisplay.as)
+   File: IBayLayout  (interactivity\display\IBayLayout.as)
+   File: RowFirstBayLayout  (interactivity\display\RowFirstBayLayout.as)
+   File: SimpleDDDisplay  (interactivity\display\SimpleDDDisplay.as)
+   File: SimpleHSDisplay  (interactivity\display\SimpleHSDisplay.as)
+   File: SimpleMCDisplay  (interactivity\display\SimpleMCDisplay.as)
+   File: SimpleMSDisplay  (interactivity\display\SimpleMSDisplay.as)
+   File: SimpleSequencingDisplay  (interactivity\display\SimpleSequencingDisplay.as)
+   File: SimpleSliderDisplay  (interactivity\display\SimpleSliderDisplay.as)
+   File: SimpleSliderDisplay  (interactivity\display\SimpleMultSliderDisplay.as)
+   }  # Group: Display
+
+Group: Evaluation  {
+
+   File: BasicChoiceEvaluator  (interactivity\evaluation\BasicChoiceEvaluator.as)
+   File: BasicDDEvaluator  (interactivity\evaluation\BasicDDEvaluator.as)
+   File: BasicEvaluator  (interactivity\evaluation\BasicEvaluator.as)
+   File: BasicMultSliderEvaluator  (interactivity\evaluation\BasicMultSliderEvaluator.as)
+   File: BasicSequencingEvaluator  (interactivity\evaluation\BasicSequencingEvaluator.as)
+   File: BasicSliderEvaluator  (interactivity\evaluation\BasicSliderEvaluator.as)
+   File: BasicSortingEvaluator  (interactivity\evaluation\BasicSortingEvaluator.as)
+   File: IEvaluation  (interactivity\evaluation\IEvaluation.as)
+   File: IEvaluator  (interactivity\evaluation\IEvaluator.as)
+   File: SimpleChoiceEvaluation  (interactivity\evaluation\SimpleChoiceEvaluation.as)
+   File: SimpleDDEvaluation  (interactivity\evaluation\SimpleDDEvaluation.as)
+   File: SimpleEvaluation  (interactivity\evaluation\SimpleEvaluation.as)
+   File: SimpleEvaluation  (interactivity\evaluation\SimpleSliderEvaluation.as)
+   File: SimpleEvaluation  (interactivity\evaluation\SimpleMultSliderEvaluation.as)
+   File: SimpleSequencingEvaluation  (interactivity\evaluation\SimpleSequencingEvaluation.as)
+   }  # Group: Evaluation
+
+Group: Events  {
+
+   File: ChoiceEvent  (interactivity\events\ChoiceEvent.as)
+   File: DraggerEvent  (interactivity\events\DraggerEvent.as)
+   File: enspire...events.IInteractivityClipEvent  (interactivity\events\IInteractivityClipEvent.as)
+   File: enspire...events.IInteractivityEvent  (interactivity\events\IInteractivityEvent.as)
+   File: enspire...events.InteractivityEvent  (interactivity\events\InteractivityEvent.as)
+   File: FeedbackChoiceEvent  (interactivity\events\FeedbackChoiceEvent.as)
+   File: HotspotEvent  (interactivity\events\HotspotEvent.as)
+   File: LikertEvent  (interactivity\events\LikertEvent.as)
+   File: PopupEvent  (interactivity\events\PopupEvent.as)
+   File: ScoreEvent  (interactivity\events\ScoreEvent.as)
+   File: SliderEvent  (interactivity\events\SliderEvent.as)
+   }  # Group: Events
+
+File: enspire...main.Interactivity  (interactivity\main\Interactivity.as)
+File: enspire...utils.Utils  (interactivity\utils\Utils.as)
+File: InteractivityFactory  (interactivity\main\InteractivityFactory.as)
+
+Group: Model  {
+
+   File: Bay  (interactivity\model\Bay.as)
+   File: Choice  (interactivity\model\Choice.as)
+   File: Dragger  (interactivity\model\Dragger.as)
+   File: enspire...model.MouseFollower  (interactivity\model\MouseFollower.as)
+   File: FeedbackChoice.as  (interactivity\model\FeedbackChoice.as)
+   File: HotSpot.as  (interactivity\model\HotSpot.as)
+   File: IActivity  (interactivity\model\IActivity.as)
+   File: IBin  (interactivity\model\IBin.as)
+   File: IChoice  (interactivity\model\IChoice.as)
+   File: IChoice  (interactivity\model\IFeedbackChoice.as)
+   File: InteractivityClip  (interactivity\model\InteractivityClip.as)
+   File: ISequence  (interactivity\model\ISequence.as)
+   File: ISlider  (interactivity\model\ISlider.as)
+   File: ISortingElement  (interactivity\model\ISortingElement.as)
+   File: LikertSlider  (interactivity\model\LikertSlider.as)
+   File: LikertWidget  (interactivity\model\LikertWidget.as)
+   File: Slider  (interactivity\model\Slider.as)
+   File: SubmitButton  (interactivity\model\SubmitButton.as)
+   }  # Group: Model
+
+File: VisualRandomizer  (interactivity\utils\VisualRandomizer.as)
+
+Group: Index  {
+
+   Index: Everything
+   Class Index: Classes
+   Function Index: Functions
+   Interface Index: Interfaces
+   Variable Index: Variables
+   File Index: Files
+   }  # Group: Index
+
